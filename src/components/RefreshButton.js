@@ -6,7 +6,7 @@ import React from 'react';
 // doesn't rerender
 export default React.memo(({ cb }) => {
   return (
-    <button className='button-refresh-colors' onClick={cb}>
+    <button title='Refresh colors' className='button-refresh-colors' onClick={cb}>
       &#8634;
     </button>
   )

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import useWindowSize from './WindowSize';
 
 // check an error that Canvas rerenders (and the picture is gone)
 // the first time RefreshButton is clicked.
@@ -23,6 +24,8 @@ export default function Canvas (props) {
   useEffect(() => {
     ctx.current = canvasRef.current.getContext('2d')
   }, []);
+
+  const [width, height] = useWindowSize();
 
   function handleMouseMove(e) {
     // actual coordinates
@@ -61,8 +64,8 @@ export default function Canvas (props) {
   return (
     <canvas
       ref={canvasRef}
-      width={props.width}
-      height={props.height}
+      width={width}
+      height={height}
       onMouseDown={startDrawing}
       onMouseUp={stopDrawing}
       onMouseOut={stopDrawing}

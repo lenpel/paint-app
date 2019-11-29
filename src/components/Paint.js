@@ -69,14 +69,11 @@ function Paint() {
             setActiveColor={setActiveColor}
           />
           <RefreshButton cb={cb} />
-
         </div>
       </header>
       {activeColor && (
         <Canvas
           color={activeColor}
-          width={windowWidth}
-          height={window.innerHeight - headerRef.current.offsetHeight}
         />
       )}
       <div className={`window-size ${visible ? '' : 'hidden'}`}>
